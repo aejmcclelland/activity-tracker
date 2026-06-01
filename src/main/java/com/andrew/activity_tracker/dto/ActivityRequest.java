@@ -2,39 +2,64 @@ package com.andrew.activity_tracker.dto;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
+
 import com.andrew.activity_tracker.model.ActivityType;
 
 public class ActivityRequest {
 
-private ActivityType activityType;
+    @NotNull(message = "Activity type is required")
+
+    private ActivityType activityType;
+
+    @NotNull(message = "Activity date is required")
+
+    private LocalDate activityDate;
+
+    @NotNull(message = "Duration is required")
+
+    @Min(value = 1, message = "Duration must be at least 1 minute")
+
+    private Integer durationMinutes;
+
+    @PositiveOrZero(message = "Distance cannot be negative")
+
+    private Double distanceMiles;
+
+    @Size(max = 500, message = "Notes cannot be longer than 500 characters")
+
+    private String notes;
 public ActivityType getActivityType() {
     return activityType;
 }
  public void setActivityType(ActivityType activityType) {
     this.activityType = activityType;
  }
-private LocalDate activityDate;
+
 public LocalDate getActivityDate() {
     return activityDate;
 }
 public void setActivityDate(LocalDate activityDate) {
     this.activityDate = activityDate;
 }
-private Integer durationMinutes;
+
 public Integer getDurationMinutes() {
     return durationMinutes;
 }
 public void setDurationMinutes(Integer durationMinutes) {
     this.durationMinutes = durationMinutes;
 }
-private Double distanceMiles;
+
 public Double getDistanceMiles() {
     return distanceMiles;
 }
 public void setDistanceMiles(Double distanceMiles) {
     this.distanceMiles = distanceMiles;
 }
-private String notes;
+
 public String getNotes() {
     return notes;
 }

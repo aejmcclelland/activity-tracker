@@ -25,27 +25,16 @@ public class ActivityResponse {
     private LocalDateTime updatedAt;
 
     public static ActivityResponse from(Activity activity) {
-
         ActivityResponse response = new ActivityResponse();
-
         response.id = activity.getId();
-
         response.activityType = activity.getActivityType();
-
         response.activityDate = activity.getActivityDate();
-
         response.durationMinutes = activity.getDurationMinutes();
-
         response.distanceMiles = activity.getDistanceMiles();
-
         response.notes = activity.getNotes();
-
         response.createdAt = activity.getCreatedAt();
-
         response.updatedAt = activity.getUpdatedAt();
-
         return response;
-
     }
 
     public Long getId() {

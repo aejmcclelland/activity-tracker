@@ -3,12 +3,9 @@
 A small Spring Boot backend for tracking activities such as running, cycling,
 walking, jump rope, and strength training.
 
-I built this project to demonstrate clean first-version backend fundamentals
-to improve my Spring skills. It focuses on a simple CRUD API,
-request/response DTOs, validation, layered application structure, JPA
-persistence, and controller testing.
+I built this project to practise and demonstrate clean first-version backend fundamentals while improving my Spring Boot skills. It focuses on a simple CRUD API, request/response DTOs, validation, layered application structure, JPA persistence, and controller testing.
 
-## Request Flow Diagram
+  ## Request Flow Diagram
 
 ![Spring Boot Activity Tracker API request flow](docs/images/activity-tracker-request-flow.png)
 
@@ -155,8 +152,6 @@ The project includes:
 
 ## What I Learned
 
-This project demonstrates how I structurd a small Spring Boot backend around
-clear responsibilities: controllers handle HTTP requests, DTOs define the API
-contract, validation protects incoming data, services contain application logic,
-and repositories manage persistence. It also shows how I used MockMvc to
-test REST endpoints without manually running the application.
+This project helped me structure a small Spring Boot backend around clear responsibilities: controllers handle HTTP requests, DTOs define the API contract, validation protects incoming data, services contain application logic, and repositories manage persistence.
+
+It also gave me practice using MockMvc to test REST endpoints without manually running the application.

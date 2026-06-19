@@ -1,16 +1,21 @@
 # Activity Tracker API
 
-A small Spring Boot backend for tracking activities such as running, cycling, walking, jump rope, and strength training.
+A small Spring Boot backend for tracking activities such as running, cycling,
+walking, jump rope, and strength training.
 
-This project is intended to demonstrate clean first-version backend fundamentals for a junior portfolio project. It focuses on a simple CRUD API, request/response DTOs, validation, layered application structure, JPA persistence, and controller testing.
+This project is intended to demonstrate clean first-version backend fundamentals
+for a junior portfolio project. It focuses on a simple CRUD API,
+request/response DTOs, validation, layered application structure, JPA
+persistence, and controller testing.
 
 ## Learning Goals
 
 - Build a Spring Boot CRUD REST API.
-- Use DTOs to separate incoming requests and outgoing responses from JPA entities.
+- Use DTOs to separate incoming requests and outgoing responses from JPA
+  entities.
 - Validate request data with Bean Validation.
 - Keep a clear controller, service, and repository structure.
-- Persist activity data with Spring Data JPA and H2.
+- Persist activity data using Spring Data JPA with an H2 in-memory database.
 - Test controller behaviour with MockMvc.
 
 ## Tech Stack
@@ -76,13 +81,13 @@ http://localhost:8080
 
 ## API Endpoints
 
-| Method | Path | Purpose |
-| --- | --- | --- |
-| `POST` | `/api/activities` | Create a new activity |
-| `GET` | `/api/activities` | Get all activities |
-| `GET` | `/api/activities/{id}` | Get one activity by ID |
-| `PUT` | `/api/activities/{id}` | Update an existing activity |
-| `DELETE` | `/api/activities/{id}` | Delete an activity |
+| Method   | Path                   | Purpose                     |
+| -------- | ---------------------- | --------------------------- |
+| `POST`   | `/api/activities`      | Create a new activity       |
+| `GET`    | `/api/activities`      | Get all activities          |
+| `GET`    | `/api/activities/{id}` | Get one activity by ID      |
+| `PUT`    | `/api/activities/{id}` | Update an existing activity |
+| `DELETE` | `/api/activities/{id}` | Delete an activity          |
 
 ## Supported Activity Types
 
@@ -96,11 +101,11 @@ http://localhost:8080
 
 ```json
 {
-  "activityType": "RUNNING",
-  "activityDate": "2026-06-01",
-  "durationMinutes": 30,
-  "distanceMiles": 3.2,
-  "notes": "Easy run"
+	"activityType": "RUNNING",
+	"activityDate": "2026-06-01",
+	"durationMinutes": 30,
+	"distanceMiles": 3.2,
+	"notes": "Easy run"
 }
 ```
 
@@ -108,26 +113,26 @@ http://localhost:8080
 
 ```json
 {
-  "id": 1,
-  "activityType": "RUNNING",
-  "activityDate": "2026-06-01",
-  "durationMinutes": 30,
-  "distanceMiles": 3.2,
-  "notes": "Easy run",
-  "createdAt": "2026-06-01T10:15:30",
-  "updatedAt": "2026-06-01T10:15:30"
+	"id": 1,
+	"activityType": "RUNNING",
+	"activityDate": "2026-06-01",
+	"durationMinutes": 30,
+	"distanceMiles": 3.2,
+	"notes": "Easy run",
+	"createdAt": "2026-06-01T10:15:30",
+	"updatedAt": "2026-06-01T10:15:30"
 }
 ```
 
 ## Validation Rules
 
-| Field | Rule |
-| --- | --- |
-| `activityType` | Required. Must be one of the supported activity types. |
-| `activityDate` | Required. Uses ISO date format, for example `2026-06-01`. |
-| `durationMinutes` | Required. Must be at least `1`. |
-| `distanceMiles` | Optional. Must be zero or positive if supplied. |
-| `notes` | Optional. Maximum length is 500 characters. |
+| Field             | Rule                                                      |
+| ----------------- | --------------------------------------------------------- |
+| `activityType`    | Required. Must be one of the supported activity types.    |
+| `activityDate`    | Required. Uses ISO date format, for example `2026-06-01`. |
+| `durationMinutes` | Required. Must be at least `1`.                           |
+| `distanceMiles`   | Optional. Must be zero or positive if supplied.           |
+| `notes`           | Optional. Maximum length is 500 characters.               |
 
 Invalid requests return a `400 Bad Request` response.
 
@@ -145,7 +150,8 @@ The project includes:
 
 ## Deliberate Non-Goals
 
-The following features are deliberately postponed to keep this project focused on first-version backend fundamentals:
+The following features are deliberately postponed to keep this project focused
+on first-version backend fundamentals:
 
 - Authentication
 - Users
@@ -159,5 +165,8 @@ The following features are deliberately postponed to keep this project focused o
 
 ## What I Learned
 
-This project demonstrates how to structure a small Spring Boot backend around clear responsibilities: controllers handle HTTP requests, DTOs define the API contract, validation protects incoming data, services contain application logic, and repositories manage persistence. It also shows how MockMvc can be used to test REST endpoints without manually running the application.
-
+This project demonstrates how to structure a small Spring Boot backend around
+clear responsibilities: controllers handle HTTP requests, DTOs define the API
+contract, validation protects incoming data, services contain application logic,
+and repositories manage persistence. It also shows how MockMvc can be used to
+test REST endpoints without manually running the application.

@@ -3,8 +3,8 @@
 A small Spring Boot backend for tracking activities such as running, cycling,
 walking, jump rope, and strength training.
 
-This project is intended to demonstrate clean first-version backend fundamentals
-for a junior portfolio project. It focuses on a simple CRUD API,
+I built this project to demonstrate clean first-version backend fundamentals
+to improve my Spring skills. It focuses on a simple CRUD API,
 request/response DTOs, validation, layered application structure, JPA
 persistence, and controller testing.
 

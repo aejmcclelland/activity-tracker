@@ -1,9 +1,9 @@
 package com.andrew.activity_tracker.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -62,6 +62,18 @@ class ActivityControllerTests {
         mockMvc.perform(get("/api/activities")).andExpect(status().isOk()).andExpect(jsonPath("$.length()").value(2))
                 .andExpect(jsonPath("$[0].activityType").value("RUNNING"))
                 .andExpect(jsonPath("$[1].activityType").value("CYCLING"));
+    }
+
+    @Test
+    void getActivityByIdReturnsActivityWhenFound() throws Exception {
+        Activity activity = saveActivity(ActivityType.RUNNING, LocalDate.of(2026, 6, 1), 30, 3.2, "Easy run");
+
+        mockMvc.perform(get("/api/activities/{id}", activity.getId()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(activity.getId()))
+                .andExpect(jsonPath("$.activityType").value("RUNNING"))
+                .andExpect(jsonPath("$.durationMinutes").value(30))
+                .andExpect(jsonPath("$.notes").value("Easy run"));
     }
 
     @Test
@@ -130,9 +142,9 @@ class ActivityControllerTests {
     }
 
     @Test
-    void deleteActivityReturnReturnsNotFoundWhenMissing() throws Exception {
+    void deleteActivityReturnsNotFoundWhenMissing() throws Exception {
         mockMvc.perform(delete("/api/activities/{id}", 999L)).andExpect(status().isNotFound());
-    }   
+    }
 
     private Activity saveActivity(ActivityType activityType, LocalDate activityDate, Integer durationMinutes,
             Double distanceMiles, String notes) {

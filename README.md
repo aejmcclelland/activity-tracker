@@ -8,6 +8,11 @@ for a junior portfolio project. It focuses on a simple CRUD API,
 request/response DTOs, validation, layered application structure, JPA
 persistence, and controller testing.
 
+## Request Flow Diagram
+
+![Spring Boot Activity Tracker API request flow](docs/images/activity-tracker-request-flow.png)
+
+
 ## Learning Goals
 
 - Build a Spring Boot CRUD REST API.

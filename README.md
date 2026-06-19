@@ -153,25 +153,10 @@ The project includes:
 - MockMvc controller tests for deleting activities.
 - MockMvc coverage for selected validation and not-found cases.
 
-## Deliberate Non-Goals
-
-The following features are deliberately postponed to keep this project focused
-on first-version backend fundamentals:
-
-- Authentication
-- Users
-- Frontend
-- Docker
-- PostgreSQL
-- Database migrations
-- Pagination and filtering
-- Dashboards
-- Training-plan features
-
 ## What I Learned
 
-This project demonstrates how to structure a small Spring Boot backend around
+This project demonstrates how I structurd a small Spring Boot backend around
 clear responsibilities: controllers handle HTTP requests, DTOs define the API
 contract, validation protects incoming data, services contain application logic,
-and repositories manage persistence. It also shows how MockMvc can be used to
+and repositories manage persistence. It also shows how I used MockMvc to
 test REST endpoints without manually running the application.
